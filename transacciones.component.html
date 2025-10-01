@@ -1,0 +1,24 @@
+<h2>Registro de Transacción</h2>
+<form id="transaccionForm">
+  <label for="idCliente">ID Cliente</label>
+  <input type="number" id="idCliente" name="idCliente" required />
+
+  <label for="cuenta">Cuenta</label>
+  <input type="text" id="cuenta" name="cuenta" required />
+
+  <label for="tipoOperacion">Tipo de operación</label>
+  <select id="tipoOperacion" name="tipoOperacion" required>
+    <option value="" selected disabled >Seleccione...</option>
+    <option value="Credito">Crédito</option>
+    <option value="Debito">Débito</option>
+  </select>
+
+  <label for="monto">Monto</label>
+  <input type="number" id="monto" name="monto" required />
+
+  <button type="submit">Enviar</button>
+  <button routerLink="/home">Regresar</button>
+  <div id="resultado" class="resultado" style="display: none;"></div>
+</form>
+
+

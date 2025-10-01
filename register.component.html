@@ -1,0 +1,22 @@
+
+<form [formGroup]="formRegister" (ngSubmit)="onRegister()">
+<h2>Crear cuenta</h2>
+  <label> Registra tu usuario</label>
+  <input type="text" formControlName="usuario" autocomplete="off" placeholder="Nombre o correo electrónico" />
+   <div *ngIf="formRegister.get('usuario')?.touched && formRegister.get('usuario')?.invalid" class="error">
+    <small *ngIf="formRegister.get('usuario')?.errors?.['required']">Este campo es obligatorio.</small>
+    <small *ngIf="formRegister.get('usuario')?.errors?.['pattern']">Debe ser un nombre válido o correo electrónico.</small>
+  </div>
+
+  <label>Contraseña</label>
+  <input type="password" formControlName="clave" autocomplete="new-password" placeholder="Crear contraseña" required>
+  <div *ngIf="formRegister.get('clave')?.touched && formRegister.get('clave')?.invalid" class="error">
+    <small *ngIf="formRegister.get('clave')?.errors?.['required']">Este campo es obligatorio.</small>
+    <small *ngIf="formRegister.get('clave')?.errors?.['minlength']">Debe tener al menos 6 caracteres.</small>
+  </div>
+
+  <button type="submit" >Registrarse</button>
+  <button type="button" (click)="goBack()">Regresar</button>
+    <h4>¿Necesitas ayuda?</h4>
+ 
+</form>

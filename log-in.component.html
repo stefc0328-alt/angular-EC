@@ -1,0 +1,23 @@
+
+<form [formGroup]="formLogin" (ngSubmit)="onLogin()">
+  <h2>Iniciar Sesión</h2>
+
+  <label for="usuario"> </label>
+  <input type="text" id="usuario" formControlName="usuario" placeholder="Nombre o correo electrónico "   />
+  <div *ngIf="formLogin.get('usuario')?.touched && formLogin.get('usuario')?.invalid" class="error">
+   <small *ngIf="formLogin.get('usuario')?.errors?.['required']">Este campo es obligatorio.</small>
+    <small *ngIf="formLogin.get('usuario')?.errors?.['pattern']">Debe ser un nombre válido o correo electrónico.</small>
+  </div>
+
+  <label for="clave"> </label>
+  <input type="password" id="clave" formControlName="clave" placeholder="Ingresa tu contraseña"   />
+  <div *ngIf="formLogin.get('clave')?.touched && formLogin.get('clave')?.invalid" class="error">
+  <small *ngIf="formLogin.get('clave')?.errors?.['required']">Este campo es obligatorio.</small>
+  <small *ngIf="formLogin.get('clave')?.errors?.['minlength']">Debe tener al menos 6 caracteres.</small>
+  </div>
+
+  <button type="submit">Iniciar Sesión</button>
+  <button type="button" (click)="goBack()">Regresar</button>
+
+  <h4> <div (click)="goToRegister()" style="cursor: pointer; color: rgb(86, 26, 143);"> Crear otra cuenta </div> </h4> 
+</form>
